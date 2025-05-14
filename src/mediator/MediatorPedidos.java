@@ -1,27 +1,25 @@
-import java.util.HashMap;
-import java.util.Map;
+package mediator;
+
+import Observer.Pedido; // Importa la clase Pedido desde el paquete Observer
 
 public class MediatorPedidos {
-    private final Map<String, Componente> componentes = new HashMap<>();
 
-    public void registrarComponente(String nombre, Componente componente) {
-        componentes.put(nombre, componente);
-        componente.setMediator(this);
+    private Pedido pedido;
+
+    public MediatorPedidos() {
+        this.pedido = new Pedido(); // Inicializa el pedido correctamente
     }
 
-    public void enviar(String mensaje, String destino) {
-        if (componentes.containsKey(destino)) {
-            componentes.get(destino).recibir(mensaje);
-        }
-    }
-}
-
-abstract class Componente {
-    protected MediatorPedidos mediator;
-
-    public void setMediator(MediatorPedidos mediator) {
-        this.mediator = mediator;
+    public void procesarPedido() {
+        System.out.println("Procesando el pedido con estado: " + pedido.getEstado());
+        pedido.siguienteEstado(); // Cambia al siguiente estado
     }
 
-    public abstract void recibir(String mensaje);
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
 }
