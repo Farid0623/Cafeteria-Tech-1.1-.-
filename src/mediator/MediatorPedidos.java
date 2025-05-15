@@ -1,6 +1,7 @@
 package mediator;
 
 import Observer.Pedido; // Importa la clase Pedido desde el paquete Observer
+import java.lang.System;
 
 public class MediatorPedidos {
 
