@@ -6,7 +6,7 @@ public class Main {
         Pedido pedido = new Pedido();
 
         // Agregar observadores
-        Cliente cliente = new Cliente("Juan");
+        Cliente cliente = new Cliente("Farid");
         Cocina cocina = new Cocina();
         pedido.agregarObservador(cliente);
         pedido.agregarObservador(cocina);
